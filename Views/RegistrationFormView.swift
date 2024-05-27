@@ -15,6 +15,7 @@ struct RegistrationFormView: View {
     let emailConfirmationLabel: String
     let passWordLabel : String
     let passWordConfirmationLabel : String
+    let companyList = ["Select Organization", "Company 1", "Company 2", "Company 3", "Company 4", "Company 5"]
     
     
     @State var firstNameFormValue = ""
@@ -24,6 +25,8 @@ struct RegistrationFormView: View {
     @State var jobTitleFormValue = ""
     @State var passWordFormValue = ""
     @State var passwordConfirmationFormValue = ""
+    @State var dropDownSelectionPlaceholder = "Select Organization"
+    
     
     var body: some View {
         Form{
@@ -33,6 +36,7 @@ struct RegistrationFormView: View {
                 LabelAndTextField(label: emailLabel, placeHolder: emailLabel, value: emailFormValue).padding(.bottom, 20)
                 LabelAndTextField(label: emailConfirmationLabel, placeHolder: emailConfirmationLabel, value: emailConfirmationFormValue).padding(.bottom, 20)
                 LabelAndTextField(label: jobTitleLabel, placeHolder: jobTitleLabel, value: jobTitleFormValue).padding(.bottom, 20)
+                DropdownView(selection: dropDownSelectionPlaceholder, selectionList: companyList)
                 LabelAndTextField(label: passWordLabel, placeHolder: passWordLabel, value: passWordFormValue).padding(.bottom, 20)
                 LabelAndTextField(label: passWordConfirmationLabel, placeHolder: passWordConfirmationLabel, value: passwordConfirmationFormValue).padding(.bottom, 20)
                 
