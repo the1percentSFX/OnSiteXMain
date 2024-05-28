@@ -13,7 +13,7 @@ struct LoginFormView: View {
     
     @State var email = ""
     @State var password = ""
-    @State var navigateToHome = true
+    @State var navigateToHome = false
     
     var fireStoreAuthService: FireStoreAuthService = FireStoreAuthService()
     
@@ -27,6 +27,7 @@ struct LoginFormView: View {
             Button(action: {
                 // Login Logic Here
                 fireStoreAuthService.logInUser(email: email, password: password)
+                navigateToHome = true
             }, label: {
                 FormButtonView(buttonLabel: "Login")
             }).background(
