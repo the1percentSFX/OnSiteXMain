@@ -13,6 +13,9 @@ struct LoginFormView: View {
     
     @State var email = ""
     @State var password = ""
+    @State var navigateToHome = true
+    
+    var fireStoreAuthService: FireStoreAuthService = FireStoreAuthService()
     
     var body: some View {
         Form{
@@ -21,18 +24,16 @@ struct LoginFormView: View {
             TextField(passwordLabel, text: $password)
                 .textFieldStyle(RoundedBorderTextFieldStyle())
             
-            Button {
+            Button(action: {
                 // Login Logic Here
-            } label: {
-                ZStack{
-                    RoundedRectangle(cornerRadius: /*@START_MENU_TOKEN@*/25.0/*@END_MENU_TOKEN@*/)
-                        .foregroundColor(.teal)
-                    
-                    Text("Login")
-                        .foregroundColor(.white)
-                        .bold()
-                }
-            }
+                fireStoreAuthService.logInUser(email: email, password: password)
+            }, label: {
+                FormButtonView(buttonLabel: "Login")
+            }).background(
+                NavigationLink(destination: HomeTabView(),
+                               isActive: $navigateToHome,
+                               label: {EmptyView()}).hidden()
+            )
             
         }
     }
@@ -42,3 +43,6 @@ struct LoginFormView: View {
 //    LoginFormView(emailLabel: "Email Address", passWordLabel: "Password")
     LoginFormView(emailLabel: "Email Address", passwordLabel: "Password")
 }
+
+
+

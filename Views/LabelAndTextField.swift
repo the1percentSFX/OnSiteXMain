@@ -11,7 +11,7 @@ import SwiftUI
 struct LabelAndTextField : View {
     @State var label: String
     @State var placeHolder: String
-    @State var value: String = ""
+    @Binding var value: String
     
     var body: some View {
         VStack(alignment: .leading, spacing: 5) {
@@ -26,5 +26,5 @@ struct LabelAndTextField : View {
 }
 
 #Preview {
-    LabelAndTextField(label: "Label Text",  placeHolder: "Placeholder text ", value: "")
+    LabelAndTextField(label: "Label Text",  placeHolder: "Placeholder text ", value: Binding.constant(""))
 }
