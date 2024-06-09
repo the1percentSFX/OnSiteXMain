@@ -1,2 +1,7 @@
 # ignore project executable
 OnSiteX.xcodeproj/
+OnSiteXMain.xcodeproj/
+
+# ignore .DS file VSCode
+Views/.DS_Store
+.DS_Store
