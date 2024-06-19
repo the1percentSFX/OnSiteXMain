@@ -31,6 +31,7 @@ struct LoginFormView: View {
             }, label: {
                 FormButtonView(buttonLabel: "Login")
             }).background(
+
                 NavigationLink(destination: HomeTabView(),
                                isActive: $navigateToHome,
                                label: {EmptyView()}).hidden()

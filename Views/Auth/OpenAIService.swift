@@ -9,7 +9,7 @@ import Foundation
 
 class OpenAIService {
     static let shared = OpenAIService()
-    private let apiKey: String = "API KEY" // Securely fetch your API key
+    private let apiKey: String = "OPENAI_API_KEY" // Securely fetch your API key
 
     private init() {}
 
